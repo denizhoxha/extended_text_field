@@ -1,4 +1,3 @@
-
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -54,24 +53,19 @@ class MyApp extends StatelessWidget {
           routeName = routeName.replaceFirst('/', '');
         }
 
-        var routeResult =
-            getRouteResult(name: routeName, arguments: settings.arguments);
+        var routeResult = getRouteResult(name: routeName, arguments: settings.arguments);
 
-        if (routeResult.showStatusBar != null ||
-            routeResult.routeName != null) {
+        if (routeResult.showStatusBar != null || routeResult.routeName != null) {
           settings = FFRouteSettings(
               arguments: settings.arguments,
               name: routeName,
-              isInitialRoute: settings.isInitialRoute,
+//              isInitialRoute: settings.isInitialRoute,
               routeName: routeResult.routeName,
               showStatusBar: routeResult.showStatusBar);
         }
 
         var page = routeResult.widget ??
-            getRouteResult(
-                    name: 'fluttercandies://mainpage',
-                    arguments: settings.arguments)
-                .widget;
+            getRouteResult(name: 'fluttercandies://mainpage', arguments: settings.arguments).widget;
 
         final platform = Theme.of(context).platform;
         switch (routeResult.pageRouteType) {
@@ -80,11 +74,11 @@ class MyApp extends StatelessWidget {
           case PageRouteType.cupertino:
             return CupertinoPageRoute(settings: settings, builder: (c) => page);
           case PageRouteType.transparent:
-            return platform == TargetPlatform.iOS
-                ? TransparentCupertinoPageRoute(
-                    settings: settings, builder: (c) => page)
-                : TransparentMaterialPageRoute(
-                    settings: settings, builder: (c) => page);
+//            return platform == TargetPlatform.iOS
+//                ? TransparentCupertinoPageRoute(
+//                    settings: settings, builder: (c) => page)
+//                : TransparentMaterialPageRoute(
+//                    settings: settings, builder: (c) => page);
 //            return FFTransparentPageRoute(
 //                settings: settings,
 //                pageBuilder: (BuildContext context, Animation<double> animation,

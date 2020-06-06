@@ -5,8 +5,8 @@
 
 import 'dart:io';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'example_route.dart';
@@ -101,7 +101,7 @@ Route<dynamic> onGenerateRouteHelper(
   if (routeResult.showStatusBar != null || routeResult.routeName != null) {
     settings = FFRouteSettings(
       name: settings.name,
-      isInitialRoute: settings.isInitialRoute,
+//      isInitialRoute: settings.isInitialRoute,
       routeName: routeResult.routeName,
       arguments: arguments,
       showStatusBar: routeResult.showStatusBar,
@@ -109,8 +109,7 @@ Route<dynamic> onGenerateRouteHelper(
   }
   final page = routeResult.widget ?? notFoundFallback;
   if (page == null) {
-    throw Exception(
-        '''Route "${settings.name}" returned null.Route Widget must never return null, 
+    throw Exception('''Route "${settings.name}" returned null.Route Widget must never return null, 
           maybe the reason is that route name did not match with right path.
           You can use parameter[notFoundFallback] to avoid this ugly error.''');
   }
@@ -148,5 +147,9 @@ class FFRouteSettings extends RouteSettings {
     String name,
     bool isInitialRoute = false,
     Object arguments,
-  }) : super(name: name, isInitialRoute: isInitialRoute, arguments: arguments);
+  }) : super(
+          name: name,
+//          isInitialRoute: isInitialRoute,
+          arguments: arguments,
+        );
 }
