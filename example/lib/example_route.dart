@@ -4,8 +4,8 @@
 // **************************************************************************
 
 import 'package:flutter/widgets.dart';
+import 'package:flutter_candies_demo_library/flutter_candies_demo_library.dart';
 
-import 'package:flutter_candies_demo_library/flutter_candies_demo_library_route.dart';
 import 'pages/custom_toolbar.dart';
 import 'pages/main_page.dart';
 import 'pages/text_demo.dart';
